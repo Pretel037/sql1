@@ -1,0 +1,100 @@
+CREATE SCHEMA IF NOT EXISTS EXAMEN_PRETEL;
+USE EXAMEN_PRETEL;
+
+DROP TABLE IF EXISTS Cliente;
+CREATE TABLE Empleado (
+    DNI INT, 
+    nombre VARCHAR(255), 
+    apellidos VARCHAR(255), 
+    email VARCHAR(255), 
+    Telefonos VARCHAR(255), 
+    Direccion_emp VARCHAR(255), 
+    Salario DECIMAL(5, 2),
+    Nombre_departamento VARCHAR(255),
+    FOREIGN KEY (Nombre_departamento) REFERENCES Departamento(Nombre_departamento)
+);
+
+INSERT INTO Empleado (DNI, localidad, Direccion_cl, Tipo_cliente, Email, Nombre_cliente, Apellidos, Telefonos)
+VALUES
+(72382134, 'Chimbote', 'Av. Brasil', 'Frecuente', 'patri@hotmail.com', 'Patricio', 'Solorzano Quispe', '964562345');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+crear la base de datos 
+lueo configurar 0.0.0.0/0 en redes
+
+"hacer el sql :("
+
+"luego subir al git"
+
+crear storage
+gsutil mb gs://[nombre]
+
+pasar el git a memoria
+curl https://raw.githubusercontent.com/Pretel037/examen-pretel1/refs/heads/main/sql1.sql --output practica.sql 
+
+esto pasa al storage
+gsutil cp practica.sql gs://practicapretel2/practica.sql
+
+
+luego volver al sql  e importar el bucket y el archivo practica cargado
+
+
+volver a entrar a MySQL
+
+mysql -h 34.132.24.150 -u root -p
+mysql -h (ip) -u root -p
+
+show databases
+
+use nombre_base
+show tables
+
+-------------------------------------------------------------------------------------------------------------
+gcloud compute ssh instance-20241018-035445 --zone us-central1-a --tunnel-through-iap
+
+sudo apt update
+sudo apt upgrade -y
+sudo apt install apache2 -y
+sudo apt install php libapache2-mod-php php-mysql -y
+sudo systemctl restart apache2
+sudo apt install mysql-server -y
